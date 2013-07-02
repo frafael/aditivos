@@ -1,0 +1,12 @@
+.box-login {
+	margin: 0 auto;
+	width: 350px;
+	height: 350px;
+	border: 10px solid rgb(221, 221, 221);
+	border-radius: 5px;
+	padding: 25px;
+}
+
+#formLogin input {
+	
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>aditivos</display-name>
+	<!--
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/spring/applicationContext.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<filter>
+		<description></description>
+		<filter-name>oemiv2</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>sessionFactoryBeanName</param-name>
+			<param-value>sessionFactory</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>oemiv2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	-->
+	
+	<filter>
+		<filter-name>vraptor</filter-name>
+		<filter-class>br.com.caelum.vraptor.VRaptor</filter-class>
+	</filter>
+
+    
+	<filter-mapping>
+		<filter-name>vraptor</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>br.com.caelum.vraptor.encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>
+	
+	<error-page>    
+        <error-code>403</error-code>    
+        <location>/acesso_negado.jsp</location>    
+    </error-page>
+    
+    <error-page>
+    	<error-code>404</error-code>
+    	<location>/page_not_found.jsp</location>
+    </error-page>
+    
+    <error-page>
+    	<error-code>500</error-code>
+    	<location>/erro_interno.jsp</location>
+    </error-page>
+    
+    <error-page>
+    	<error-code>401</error-code>
+    	<location>/erro_sessao.jsp</location>
+    </error-page>
+
+</web-app>
